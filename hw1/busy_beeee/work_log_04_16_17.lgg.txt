@@ -1,0 +1,77 @@
+built a cuboid
+
+investigate rotate (degree, vector_around)
+
+investigate Declare_Any_Class("name", methods);
+ inves Shape class: Shape.draw( );
+
+There could be many user-defined shapes e.g. Cube, Square, Windmill etc. I still not sure whether we define the whole bee as a shape or not. Let's see.
+
+These shapes are derived class from Shape, so we put Declare_Any_Classs(This_Fancy_Shape, ..., Shape). 
+
+Now it's the time to face reality questions: how to construct a "thing", let's say, leg. 
+
+Use a function draw_leg( )
+
+For example, legs are in the bee, so draw bee should include draw leg
+
+The first step is to model the simplest abstraction: how to draw a simple stuff (e.g. box) with a function, not by directly drawing itself. 
+
+(done)
+
+The second step is to model another level of abstraction: how to draw something in something, e.g. a prototyped bee with a box and a sphere
+
+(done)
+
+key codes are here
+
+function draw_box(model_transform, x, graphics_state)
+{
+  model_transform = mult(model_transform, translation(1,0,0));
+  x.shapes.ball.draw(graphics_state, model_transform, x.yellow_clay);
+}
+
+function draw_sphere(model_transform, x, graphics_state)
+{
+  model_transform = mult(model_transform, translation(5,0,0));
+  x.shapes.box.draw(graphics_state, model_transform, x.yellow_clay);
+}
+
+function draw_bee(model_transform, x, graphics_state)
+{
+  draw_box(model_transform, x, graphics_state);
+  draw_sphere(model_transform, x, graphics_state);
+
+}
+
+and in Declare_Any_Class, call 
+	draw_bee(model_transform, this, graphics_state);
+
+Next step is to make it move.
+
+With my prior experience on how to naively move (not moving abstracted objects), it's easy
+
+(done)
+
+Next Step: draw wings
+
+
+
+
+
+
+
+4/20/17
+
+next:
+	 let apple rotate
+(done, don't need)
+
+(saved in bee_3)
+	optimize stem code (use a for loop to look less dumb)
+(done)
+	add leg
+
+
+fact: the default radius of a sphere is 1
+the default size of a cube is 2

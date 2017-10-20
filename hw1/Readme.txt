@@ -1,0 +1,1 @@
+I believe every feature should work as expected. The color settings may be varied between machines but wouldn't hurt for grading. 
